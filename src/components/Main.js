@@ -1,7 +1,6 @@
 import React from 'react'
-import api from '../utils/Api.js'
+import api from '../utils/api.js'
 import Card from './Card.js'
-
 
 
 function Main(props) {
@@ -15,7 +14,7 @@ function Main(props) {
 
 
   React.useEffect(()=>{
-    Promise.all([api.getProfile('cohort-20/users/me'), api.getInitialCards('cohort-20/cards')])
+    Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([profileData, cards])=>{
       setUserName(profileData.name)
       setUserDescription(profileData.about)
@@ -23,6 +22,7 @@ function Main(props) {
 
       setCards(cards)
   })
+  .catch(err=>console.log(err))
 }, [])
  
 

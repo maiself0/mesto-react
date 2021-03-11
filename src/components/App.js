@@ -1,9 +1,9 @@
-import Header from './components/Header.js';
-import Footer from './components/Footer.js';
-import Main from './components/Main.js';
-import PopupWithForm from './components/PopupWithForm.js';
+import Header from './Header.js';
+import Footer from './Footer.js';
+import Main from './Main.js';
+import PopupWithForm from './PopupWithForm.js';
 import React from 'react';
-import ImagePopup from './components/ImagePopup';
+import ImagePopup from './ImagePopup';
 
 
 function App() {
@@ -30,7 +30,6 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState(false)
 
   function closeAllPopups() {
-    document.querySelector('.popup').classList.remove('popup_opened');
     setAddPlacePopupOpen(false);
     setEditProfilePopupOpen(false);
     setEditAvatarPopupOpen(false);
@@ -45,7 +44,7 @@ function App() {
 
       <Footer />
 
-      {isEditProfilePopupOpen && 
+
         <PopupWithForm name="edit" title="Редактировать профиль" buttonLabel="Сохранить" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
           <input
                 type="text"
@@ -67,9 +66,9 @@ function App() {
                 id="profile-desc"
               />
               <span className="profile-desc-error error"></span>
-        </PopupWithForm>}
+        </PopupWithForm>
 
-      {isAddPlacePopupOpen && 
+
         <PopupWithForm name="add" title="Новое место" buttonLabel="Создать" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
           <input
               type="text"
@@ -91,9 +90,9 @@ function App() {
               required
             />
             <span className="place-url-error error"></span>
-        </PopupWithForm>}
+        </PopupWithForm>
 
-      {isEditAvatarPopupOpen && 
+
         <PopupWithForm name="avatar" title="Обновить аватар" buttonLabel="Сохранить" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
         <input
               type="url"
@@ -104,10 +103,10 @@ function App() {
               required
             />
             <span className="avatar-url-error error"></span>
-      </PopupWithForm>}
+        </PopupWithForm>
 
-      {selectedCard &&
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />}
+
+        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
   </div>
   );

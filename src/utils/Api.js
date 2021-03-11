@@ -12,15 +12,15 @@ class Api {
   }
 
   //профиль
-  getProfile(link) {
-    return fetch(`${this._url}${link}`, {
+  getProfile() {
+    return fetch(`${this._url}cohort-20/users/me`, {
       headers: this._headers
     }).then(onError);
   }
 
   //карточки
-  getInitialCards(link) {
-    return fetch(`${this._url}${link}`, {
+  getInitialCards() {
+    return fetch(`${this._url}cohort-20/cards`, {
       headers: this._headers
     }).then(onError);
   }
