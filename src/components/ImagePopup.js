@@ -1,4 +1,5 @@
 function ImagePopup(props) {
+
   return (
     <div className={`popup popup_type_view-image ${props.card ? 'popup_opened' : ''}`}>
       <div className="popup__container popup__container_image">

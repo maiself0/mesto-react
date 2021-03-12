@@ -1,6 +1,5 @@
 .popup {
   position: fixed;
-  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
@@ -10,6 +9,6 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
-  transition: opacity 0.3s ease-in, visibility 0s ease-in 0.3s;
+  transition: opacity 0.3s ease-in, visibility 0s ease-in 0.5s;
   opacity: 0;
 }
