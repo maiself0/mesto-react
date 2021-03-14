@@ -27,13 +27,13 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(false)
+  const [selectedCard, setSelectedCard] = React.useState(null);
 
   function closeAllPopups() {
     setAddPlacePopupOpen(false);
     setEditProfilePopupOpen(false);
     setEditAvatarPopupOpen(false);
-    setSelectedCard(false);
+    setSelectedCard(null);
   }
 
   return (
@@ -106,7 +106,7 @@ function App() {
         </PopupWithForm>
 
 
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+        <ImagePopup card={selectedCard ? selectedCard : false} onClose={closeAllPopups} />
 
   </div>
   );

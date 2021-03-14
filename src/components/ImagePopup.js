@@ -2,18 +2,19 @@ import React from 'react';
 
 
 function ImagePopup(props) {
-  const hash = React.useRef();
+  const cardRef = React.useRef('');
 
   React.useEffect(() => {
-    hash.current = [props.card.link, props.card.name]
+    cardRef.current = [props.card.link, props.card.name]
   })
-  console.log(hash)
- 
+
+  console.log(cardRef)
 
   return (
+
     <div className={`popup popup_type_view-image ${props.card ? 'popup_opened' : ''}`}>
       <div className="popup__container popup__container_image">
-      
+
         <button
           type="button"
           className="popup__button-close popup__button-close_image"
@@ -21,10 +22,10 @@ function ImagePopup(props) {
         ></button>
 
         <img className="popup__image" 
-          src={props.card.link ? props.card.link : hash.current[0]}
-          alt={`${props.card.name ? props.card.name : hash.current[1]} (фото)`}/>
+          src={props.card.link ? props.card.link : cardRef.current[0]}
+          alt={`${props.card.name ? props.card.name : cardRef.current[1]} (фото)`}/>
 
-        <p className="popup__caption">{props.card.name ? props.card.name : hash.current[1]}</p>
+        <p className="popup__caption">{props.card.name ? props.card.name : cardRef.current[1]}</p>
       </div>
     </div>
   );
