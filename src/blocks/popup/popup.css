@@ -9,6 +9,6 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
-  transition: opacity 0.3s ease-in, visibility 0s ease-in 0.5s;
+  transition: opacity 0.3s ease-in, visibility 0s ease-in 0.3s;
   opacity: 0;
 }

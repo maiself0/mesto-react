@@ -12,7 +12,6 @@ function Main(props) {
 
 
 
-
   React.useEffect(()=>{
     Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([profileData, cards])=>{
@@ -29,44 +28,44 @@ function Main(props) {
 
   return (
     <main className="main">
-    <section className="profile">
-      <div className="profile__description">
-        <div 
-          className="profile__avatar-overlay" 
-          onClick={props.onEditAvatar}>
-        </div>
-        <div
-          className="profile__avatar"
-          style={{ backgroundImage: `url(${userAvatar})` }}
-        />
-
-        <div className="profile__info">
-          <div className="profile__name">
-            <h1 className="profile__heading">{userName}</h1>
-            <button 
-              type="button" 
-              className="profile__button-edit" 
-              onClick={props.onEditProfile}></button>
+      <section className="profile">
+        <div className="profile__description">
+          <div 
+            className="profile__avatar-overlay" 
+            onClick={props.onEditAvatar}>
           </div>
+          <div
+            className="profile__avatar"
+            style={{ backgroundImage: `url(${userAvatar})` }}
+          />
 
-          <p className="profile__subheading">{userDescription}</p>
+          <div className="profile__info">
+            <div className="profile__name">
+              <h1 className="profile__heading">{userName}</h1>
+              <button 
+                type="button" 
+                className="profile__button-edit" 
+                onClick={props.onEditProfile}></button>
+            </div>
+
+            <p className="profile__subheading">{userDescription}</p>
+          </div>
         </div>
-      </div>
 
-      <button 
-        type="button" 
-        className="profile__button-add" 
-        onClick = {props.onAddPlace}>
+        <button 
+          type="button" 
+          className="profile__button-add" 
+          onClick = {props.onAddPlace}>
 
-      </button>
-    </section>
+        </button>
+      </section>
 
-    <section className="elements">
-      {
-        cards.map(card => <Card key={card._id} card={card} heading={card.name} likes={card.likes.length} url={card.link} onCardClick={props.onCardClick}/>)                
-      }
-    </section>
-  </main>
+      <section className="elements">
+        {
+          cards.map(card => <Card key={card._id} card={card} heading={card.name} likes={card.likes.length} url={card.link} onCardClick={props.onCardClick}/>)                
+        }
+      </section>
+    </main>
   )
 }
 
