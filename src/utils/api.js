@@ -12,7 +12,7 @@ class Api {
   }
 
   //профиль
-  getProfile() {
+  getUserInfo() {
     return fetch(`${this._url}cohort-20/users/me`, {
       headers: this._headers
     }).then(onError);
@@ -25,9 +25,15 @@ class Api {
     }).then(onError);
   }
 
+  //профиль + карточки
+/*   getUserInfoAndInitialCards() {
+    return Promise.all([api.getUserInfo(), api.getInitialCards()])
+  }
+ */
+
   //добавить данные профиля на сервер
-  addProfile(data, link) {
-    return fetch(`${this._url}${link}`, {
+  setUserInfo(data) {
+    return fetch(`${this._url}cohort-20/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),
@@ -63,8 +69,12 @@ class Api {
     }).then(onError);
   }
 
-  addAvatar(data, link) {
-    return fetch(`${this._url}${link}`, {
+  changeLikeCardStatus(id, isLiked) {
+    return isLiked ? this.addLike(id) : this.removeLike(id)
+  }
+
+  setUserAvatar(data) {
+    return fetch(`${this._url}cohort-20/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),

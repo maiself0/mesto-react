@@ -2,12 +2,12 @@ import React from 'react';
 
 
 function ImagePopup(props) {
-  const hash = React.useRef();
+  const hash = React.useRef('[img.link, img.name]');
 
   React.useEffect(() => {
     hash.current = [props.card.link, props.card.name]
   })
-  console.log(hash)
+
  
 
   return (
