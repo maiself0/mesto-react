@@ -19,17 +19,17 @@ class Api {
   }
 
   //карточки
-  getInitialCards() {
+  getCardList() {
     return fetch(`${this._url}cohort-20/cards`, {
       headers: this._headers
     }).then(onError);
   }
 
   //профиль + карточки
-/*   getUserInfoAndInitialCards() {
-    return Promise.all([api.getUserInfo(), api.getInitialCards()])
+  getUserInfoAndInitialCards() {
+    return Promise.all([api.getUserInfo(), api.getCardList()])
   }
- */
+
 
   //добавить данные профиля на сервер
   setUserInfo(data) {
@@ -40,11 +40,11 @@ class Api {
     }).then(onError);
   }
   //добавление новой карточки
-  addCard(data, link) {
-    return fetch(`${this._url}${link}`, {
+  addCard(place) {
+    return fetch(`${this._url}cohort-20/cards`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify(data),
+      body: JSON.stringify(place),
     }).then(onError);
   }
 

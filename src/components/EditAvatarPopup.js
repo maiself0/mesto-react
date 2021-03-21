@@ -3,7 +3,6 @@ import PopupWithForm from "./PopupWithForm.js";
 
 function EditAvatarPopup(props) {
   const avatarUrlRef = useRef();
-/*   console.log(avatarUrlRef.current.value) */
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -12,6 +11,8 @@ function EditAvatarPopup(props) {
       /* Значение инпута, полученное с помощью рефа */
       avatar: avatarUrlRef.current.value
     });
+
+    event.target.reset();
   }
 
   return (
