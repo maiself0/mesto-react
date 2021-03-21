@@ -71,7 +71,7 @@ function App() {
     api
       .removeCard(card._id)
       .then(() => {
-        setCards(cards.filter((c) => c._id !== card._id));
+        setCards(cards => cards.filter((c) => c._id !== card._id));
       })
       .catch((err) => console.log(err));
   }
@@ -96,7 +96,7 @@ function App() {
           avatar: link.avatar,
         })
       )
-      .then(closeAllPopups())
+      .then(closeAllPopups)
       .catch((err) => console.log(err));
   }
 
@@ -104,7 +104,7 @@ function App() {
     api
       .addCard(place)
       .then((newCard) => setCards([newCard, ...cards]))
-      .then(closeAllPopups())
+      .then(closeAllPopups)
       .catch((err) => console.log(err));
   }
 
