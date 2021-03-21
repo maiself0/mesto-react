@@ -1,9 +1,14 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import PopupWithForm from "./PopupWithForm.js";
 
 function AddPlacePopup(props) {
   const placeNameRef = useRef();
   const placeUrlRef = useRef();
+
+  useEffect(() => {
+    placeNameRef.current.value = '';
+    placeUrlRef.current.value = '';
+  }, [props.isOpen]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -13,8 +18,6 @@ function AddPlacePopup(props) {
       name: placeNameRef.current.value,
       link: placeUrlRef.current.value,
     });
-    
-    event.target.reset();
   }
 
   return (

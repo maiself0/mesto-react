@@ -1,8 +1,12 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm.js";
 
 function EditAvatarPopup(props) {
   const avatarUrlRef = useRef();
+
+  useEffect(() => {
+    avatarUrlRef.current.value = '';
+  }, [props.isOpen]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -11,8 +15,6 @@ function EditAvatarPopup(props) {
       /* Значение инпута, полученное с помощью рефа */
       avatar: avatarUrlRef.current.value
     });
-
-    event.target.reset();
   }
 
   return (

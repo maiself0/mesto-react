@@ -89,7 +89,7 @@ function App() {
   function handleUpdateAvatar(link) {
     api
       .setUserAvatar(link)
-      .then(
+      .then(link=>
         setCurrentUser({
           name: currentUser.name,
           about: currentUser.about,
