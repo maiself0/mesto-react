@@ -2,8 +2,12 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 import Card from "./Card.js";
 
+
 function Main(props) {
   const currentUser = useContext(CurrentUserContext);
+
+
+
 
   return (
     <main className="main">
